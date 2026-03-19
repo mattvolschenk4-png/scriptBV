@@ -1,4 +1,55 @@
-<!D<script>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>ScriptBV Slots</title>
+<style>
+  body { background-color: #1e1e2f; color: white; font-family: monospace; }
+  .slot { margin: 10px; }
+  textarea { width: 400px; height: 100px; background-color: #2a2a40; color: white; border: 2px solid #6a0dad; padding: 5px; }
+  button { margin-left: 5px; padding: 5px 10px; background-color: #6a0dad; color: white; border: none; cursor: pointer; }
+</style>
+</head>
+<body>
+
+<h1>ScriptBV Slots</h1>
+
+<div id="slots"></div>
+
+<script>
+// Number of script slots you want
+const totalSlots = 5;
+const slotsContainer = document.getElementById("slots");
+
+// Create slots dynamically
+for (let i = 1; i <= totalSlots; i++) {
+  const slotDiv = document.createElement("div");
+  slotDiv.className = "slot";
+
+  const textarea = document.createElement("textarea");
+  textarea.id = `slot-${i}`;
+  textarea.placeholder = `Script Slot ${i}`;
+
+  // Load saved script if it exists
+  const savedScript = localStorage.getItem(`script-slot-${i}`);
+  if (savedScript) textarea.value = savedScript;
+
+  // Save button
+  const saveBtn = document.createElement("button");
+  saveBtn.textContent = "Save";
+  saveBtn.onclick = () => {
+    localStorage.setItem(`script-slot-${i}`, textarea.value);
+    alert(`Saved slot ${i}!`);
+  };
+
+  slotDiv.appendChild(textarea);
+  slotDiv.appendChild(saveBtn);
+  slotsContainer.appendChild(slotDiv);
+}
+</script>
+
+</body>
+</html><!D<script>
   // Save script to a slot
   function saveSlot(slotNumber) {
     const code = document.getElementById(`slot${slotNumber}`).value;
