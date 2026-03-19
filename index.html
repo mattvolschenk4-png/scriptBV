@@ -1,4 +1,70 @@
-<!DOCTYPE html>
+<!D<script>
+  // Save script to a slot
+  function saveSlot(slotNumber) {
+    const code = document.getElementById(`slot${slotNumber}`).value;
+    localStorage.setItem(`scriptBV_slot${slotNumber}`, code);
+    alert(`Slot ${slotNumber} saved!`);
+  }
+
+  // Load all slots when the page loads
+  function loadSlots() {
+    const totalSlots = 10; // Change this if you want more
+    for (let i = 1; i <= totalSlots; i++) {
+      const saved = localStorage.getItem(`scriptBV_slot${i}`);
+      if (saved) document.getElementById(`slot${i}`)?.value = saved;
+    }
+  }
+
+  loadSlots();
+</script><style>
+  #scriptBV {
+    max-width: 600px;
+    margin: auto;
+    background: #1f1f2f;
+    padding: 20px;
+    color: white;
+    border-radius: 12px;
+  }
+  .slot {
+    margin-bottom: 15px;
+  }
+  textarea {
+    width: 100%;
+    height: 100px;
+    background: #2b2b3f;
+    color: #fff;
+    border-radius: 6px;
+    border: 1px solid #555;
+    padding: 5px;
+    font-family: monospace;
+  }
+  button {
+    margin-top: 5px;
+    padding: 6px 12px;
+    background: #7b2aff;
+    color: white;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+  }
+  button:hover {
+    background: #9a49ff;
+  }
+</style><div id="scriptBV">
+  <h2>ScriptBV Slots</h2>
+
+  <div class="slot">
+    <textarea id="slot1" placeholder="Slot 1"></textarea>
+    <button onclick="saveSlot(1)">Save Slot 1</button>
+  </div>
+
+  <div class="slot">
+    <textarea id="slot2" placeholder="Slot 2"></textarea>
+    <button onclick="saveSlot(2)">Save Slot 2</button>
+  </div>
+
+  <!-- Add more slots as needed -->
+</div>OCTYPE html>
 <html>
 <head>
     <title>scriptBV</title>
