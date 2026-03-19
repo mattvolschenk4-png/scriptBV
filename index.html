@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>scriptBV</title>
+    <style>
+        body {
+            background: black;
+            color: purple;
+            font-family: Arial;
+            text-align: center;
+        }
+
+        h1 {
+            margin-top: 50px;
+            font-size: 40px;
+        }
+
+        .box {
+            background: #111;
+            border: 2px solid purple;
+            margin: 20px auto;
+            padding: 20px;
+            width: 80%;
+            border-radius: 10px;
+        }
+
+        button {
+            background: purple;
+            border: none;
+            padding: 10px 20px;
+            color: white;
+            cursor: pointer;
+            margin-top: 10px;
+        }
+    </style>
+</head>
+<body>
+
+<h1>scriptBV 😈</h1>
+
+<div class="box">
+    <h2>Skybox Script</h2>
+    <p>Click to copy</p>
+    <button onclick="copyText()">Copy Script</button>
+</div>
+
+<script>
+function copyText() {
+    navigator.clipboard.writeText("print('BV script loaded')");
+    alert("Copied!");
+}
+</script>
+
+</body>
+</html>
